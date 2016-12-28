@@ -11,11 +11,11 @@ For the Google Code In, GCI, I picked up a task where I had to create a crossbow
 
 ### Setting up Terasology
 
-Setting up Terasology is really easy:
-1. [fork](https://github.com/MovingBlocks/Terasology/fork) their repository
-2. {%raw%}cd{%endraw%}  into it
-3. run {%raw%}gradlew idea{%endraw%} You can replace {%raw%}idea{%endraw%} with other IDE's, for example eclipse.
-4. open the project and develop!
+Setting up Terasology is really easy:  
+1. [fork](https://github.com/MovingBlocks/Terasology/fork) their repository  
+2. {%raw%}cd{%endraw%}  into it  
+3. run {%raw%}gradlew idea{%endraw%} You can replace {%raw%}idea{%endraw%} with other IDE's, for example eclipse.  
+4. open the project and develop!  
 
 
 ### Creating a new prefab
@@ -42,7 +42,8 @@ Next is the action that happens when you right-click with the item in hand. Here
 The action needs to extend the BaseComponentSystem. Your class needs the function onActivate, this is the actual function should contain the code that you want to execute when the right-mouse button is clicked.
 
 Here is the onActivate function of the crossbow:
-```Java
+<pre><code data-trim class="Java">
+{% raw %}
 	@ReceiveEvent
   public void onActivate(ActivateEvent event, EntityRef entity, ArrowActionComponent arrowActionComponent) {
       if (time.getGameTime() > lastTime + 1.0f/arrowActionComponent.arrowsPerSecond) {
@@ -66,7 +67,8 @@ Here is the onActivate function of the crossbow:
           lastTime = time.getGameTime();
       }
   }
-```
+{% endraw %}
+</code></pre>
 
 This might seem like a lot of magic, but is really is just raytracing and doind damage to a block that is in range.
 To see the entire source code, head over to the [Terasology](https://github.com/MovingBlocks/Terasology) and browse around in the modules/Core.
